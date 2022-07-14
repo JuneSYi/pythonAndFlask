@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello Template Variables</h1>
+
+    {{name}}
+    <br><br>
+    <h1>{{letters[1:]}}</h1>
+    <!-- <h2>Here is a pic of a puppy!</h2> -->
+    <img src="../static/puppy_pic.jpg" alt="">
+    <h3>{{pup['pup_name']}}</h3>
+
+    <h1>{{mylist}}</h1>
+
+    <ul>
+      {% for item in puppies %}
+      <li>{{item}}</li>
+      {% endfor %}
+    </ul>
+
+    {% if 'Rufus' in puppies %}
+    <p>found you rufus!</p>
+    {% else %}
+    <p>hmmm.rufus is not in this list!</p>
+    {% endif %}
+
+    {% if userloggedin %}
+    <p>Welcome back, you are now logged in!</p>
+    {% else %}
+    <p>please log in!</p>
+    {% endif %}
+  </body>
+</html>

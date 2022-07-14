@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!-- all code from base.html is inserted here-->
+<h1>This is the puppy page for: {{name|capitalize}}</h1>
+
+<a href="{{ url_for('static',filename='puppy_pic.jpg')}}">Puppy pic here</a>
+{% endblock %}
