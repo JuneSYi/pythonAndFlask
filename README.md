@@ -1,6 +1,6 @@
-# pythonAndFlaskBootcamp
+# Python and Flask bootcamp: create websites using flask
+
 Udemy course by Jose Portilla
-Python and Flask bootcamp: create websites using flask
 
 Section 1: Course Overview
 
