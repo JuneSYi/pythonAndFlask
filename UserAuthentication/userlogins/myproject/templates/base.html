@@ -11,8 +11,13 @@
   <body>
 
     <ul class='nav'>
-      <li class='nav-link' href='{{url_for('home')}}'>Home</li>
-
+      <li class='nav-link'> <a href='{{url_for('home')}}'>Home</a></li>
+      {% if current_user.is_authenticated %}
+      <li class='nav-link'><a href ='{{url_for('logout')}}'>Logout</a></li>
+      {% else %}
+      <li class='nav-link'><a href='{{url_for('login')}}'>Log In</a></li>
+      <li class='nav-link'><a href='{{url_for('register')}}'>Register</a></li>
+      {% endif %}
     </ul>
     {% block content %}
 
