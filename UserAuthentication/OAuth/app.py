@@ -6,9 +6,9 @@ from flask import Flask,redirect,url_for,render_template
 from flask_dance.contrib.google import make_google_blueprint,google
 
 app = Flask(__name__)
-app.config['SECRETY_KEY'] = 'mysecret'
+app.config['SECRET_KEY'] = 'mysecret'
 
-blueprint = make_google_blueprint(client_id='',client_secret='',offline=True,
+blueprint = make_google_blueprint(client_id='1051655849101-atpovvoplsnupqign2gtcsmd1a26prhj.apps.googleusercontent.com',client_secret='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',offline=True,
                                     scope=['profile','email'])
 
 app.register_blueprint(blueprint,url_prefix='/login')
@@ -38,3 +38,6 @@ def login():
     email = resp.json()['email']
 
     return render_template('welcome.html',email=email)
+
+if __name__ == '__main__':
+    app.run()
