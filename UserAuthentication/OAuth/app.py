@@ -8,7 +8,11 @@ from flask_dance.contrib.google import make_google_blueprint,google
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
 
+<<<<<<< HEAD
 blueprint = make_google_blueprint(client_id='',client_secret='',offline=True,
+=======
+blueprint = make_google_blueprint(client_id='1051655849101-atpovvoplsnupqign2gtcsmd1a26prhj.apps.googleusercontent.com',client_secret='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',offline=True,
+>>>>>>> fbbc2ffaf69f20e22bba830f07b398f8fff07265
                                     scope=['profile','email'])
 
 app.register_blueprint(blueprint,url_prefix='/login')
