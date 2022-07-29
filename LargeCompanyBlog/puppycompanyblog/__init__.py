@@ -6,6 +6,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'mysecret'
 
 ############################
 ####### DATABASE SETUP
@@ -21,7 +22,7 @@ Migrate(app,db)
 ######################
 ########### LOGIN CONFIGURATIONS
 ############################
-login_manager = LoginManger()
+login_manager = LoginManager()
 
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
