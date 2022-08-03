@@ -44,10 +44,12 @@ class UpdateUserForm(FlaskForm):
 
     def validate_email(self, field):
         # Check if not None for that user email!
-        if User.query.filter_by(email=field.data).first():
+        user = User.query.filter_by(email=field.data).first()
+        if user and user != current_user:
             raise ValidationError('Your email has been registered already!')
 
     def validate_username(self, field):
         # Check if not None for that username!
-        if User.query.filter_by(username=field.data).first():
+        user = User.query.filter_by(username=field.data).first()
+        if user and user != current_user:
             raise ValidationError('Sorry, that username is taken!')
