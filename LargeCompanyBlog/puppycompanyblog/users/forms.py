@@ -10,8 +10,6 @@ from flask_login import current_user
 from puppycompanyblog.models import User
 
 
-
-
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -27,7 +25,7 @@ class RegistrationForm(FlaskForm):
 
     def validate_email(self, field):
         # Check if not None for that user email!
-        if User.query.filter_by(email=field.data).first():
+        if User.query.filter_by(email=field.data).first(): #User is imported from puppycompanyblog.models
             raise ValidationError('Your email has been registered already!')
 
     def validate_username(self, field):
@@ -53,3 +51,8 @@ class UpdateUserForm(FlaskForm):
         user = User.query.filter_by(username=field.data).first()
         if user and user != current_user:
             raise ValidationError('Sorry, that username is taken!')
+
+'''
+we can create forms in .py that easily register and organize onto an .html file
+the functions in the form execute at submit to check/validate email and username.
+'''

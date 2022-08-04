@@ -42,3 +42,26 @@ app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(blog_posts)
 app.register_blueprint(error_pages)
+
+'''
+assign app to Flask object.
+flask constructor takes the name of current module(__name__) as argument
+
+setup the database
+establish base directory path (we use os package)
+create database objective (assigned to db)
+migrate it (SQLAlchemy Migrate provides a way to deal with database schema changes in SQLAlchemy projects.)
+
+setup login configuration
+setup blueprint model for each subdirectory (with .py files)
+
+additional details on blueprint:
+Each Flask Blueprint is an object that works very similarly to a Flask application.
+They both can have resources, such as static files, templates, and views that are associated with routes.
+
+However, a Flask Blueprint is not actually an application. It needs to be registered in an application before you can run it.
+When you register a Flask Blueprint in an application, you’re actually extending the application with the contents of the Blueprint.
+
+This is the key concept behind any Flask Blueprint. They record operations to be executed later when you register them on an application.
+For example, when you associate a view to a route in a Flask Blueprint, it records this association to be made later in the application when the Blueprint is registered.
+'''

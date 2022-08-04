@@ -6,23 +6,24 @@ from puppycompanyblog.models import User, BlogPost
 from puppycompanyblog.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from puppycompanyblog.users.picture_handler import add_profile_pic
 
-
+# from /puppycompanyblog/__init__.py we registered (users) with app.register_blueprint(users) on line 42
+# we imported that here in line 5 and now can add it to users
 users = Blueprint('users', __name__)
 
 @users.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()
+    form = RegistrationForm() # function imported from forms.py, creates an instances of the form in this line
 
-    if form.validate_on_submit():
+    if form.validate_on_submit(): # User in line 18 comes from /puppycompanyblog/models.py
         user = User(email=form.email.data,
                     username=form.username.data,
                     password=form.password.data)
 
         db.session.add(user)
-        db.session.commit()
+        db.session.commit() # add and commit changes to db
         flash('Thanks for registering! Now you can login!')
-        return redirect(url_for('users.login'))
-    return render_template('register.html', form=form)
+        return redirect(url_for('users.login')) #not 100% but i think it's grabbing users from line 11, and then the .login is the function on line 29 for logging in
+    return render_template('register.html', form=form) # default to the register page if not valid
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
@@ -96,3 +97,12 @@ def user_posts(username):
     user = User.query.filter_by(username=username).first_or_404()
     blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page, per_page=5)
     return render_template('user_blog_posts.html', blog_posts=blog_posts, user=user)
+
+'''
+copied from line 9
+# from /puppycompanyblog/__init__.py we registered (users) with app.register_blueprint(users) on line 42
+# we imported that here in line 5 and now can add it to users
+
+
+
+'''
