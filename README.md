@@ -2,34 +2,14 @@
 
 Udemy course by Jose Portilla
 
-Section 1: Course Overview
+For final project, check out LargeCompanyBlog
 
-2 - HTML Crash course
+you can create a virtual environment and use "pip install -r requirements.txt" to load the correct packages
 
-3 - CSS
+run with "python app.py"
 
-4 - Bootstrap 4
+consists of a login page, account creation page, ability to update profile picture, email address, and username.
 
-5 - Python
+each account has access to its own blog posts, 5 per page, you must login to edit/delete the blog posts. you may view other blog posts as well but not modify them.
 
-6 - Python part 2
-
-7 - flask
-
-8 - Templates
-
-9 - Forms with Flask
-
-10 - SQL Databases with flask
-
-11 - Large Flask apps
-
-12 - User Auth
-
-13 - Large Project - Social Company Blog
-
-14 - Flask REST APIs
-
-15 - Deployment
-
-16 - Payments with Stripe
+This is probably the worst readme.md ever written
